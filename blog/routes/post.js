@@ -7,3 +7,8 @@ var posts = [
 exports.index = function(req, res) {
   res.render('posts/index', {posts: posts});
 };
+
+// 記事詳細
+exports.show = function(req, res) {
+  res.render('posts/show', {post: posts[req.params.id]});
+};
