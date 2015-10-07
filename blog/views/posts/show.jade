@@ -1,0 +1,9 @@
+- var blogTitle = post.title
+include ./common/_layout
+block body
+  article
+    h1= post.title
+    div#main
+      p= post.body
+  a(href="/") Go Back
+
