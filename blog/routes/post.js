@@ -5,5 +5,5 @@ var posts = [
 ];
 
 exports.index = function(req, res) {
-  res.render('posts/index');
+  res.render('posts/index', {posts: posts});
 };

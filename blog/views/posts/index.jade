@@ -6,4 +6,8 @@ html(lang="ja")
   body
     h1 Posts
     ul
-      li Blog Title &amp; Body
+      - for(var i=0, l=posts.length; i<l; i+=1)
+        li
+          a(href="/posts/#{i}")= posts[i].title
+          | &nbsp;
+          != posts[i].body
