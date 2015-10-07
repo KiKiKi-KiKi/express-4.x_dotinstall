@@ -1,0 +1,15 @@
+{
+  "name": "express-4.x_dotinstall",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:chaika-design/express-4.x_dotinstall.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
