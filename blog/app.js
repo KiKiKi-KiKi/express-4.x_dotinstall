@@ -2,7 +2,8 @@ var express = require('express'),
     path    = require('path'),
     logger  = require('morgan'),
     bodyParser = require('body-parser'),
-    app     = express();
+    app     = express(),
+    post    = require('./routes/post');
 
 // テンプレートファイルのある場所を指定
 app.set('views', path.join(__dirname + '/views'));

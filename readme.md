@@ -31,4 +31,8 @@ app.use( bodyParser.urlencoded() );
 ### #11 Blogアプリを作ってみよう
 ```sh
 $ npm install express jade path morgan nodemon body-parser
+$ touch app.js
+$ mkdir views/posts
+$ mkdir routes
+$ touch routes/post.js
 ```
