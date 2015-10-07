@@ -2,6 +2,8 @@ var express = require('express'),
     path    = require('path'),
     logger  = require('morgan'),
     bodyParser = require('body-parser'),
+    connect        = require('connect'),
+    methodOverride = require('method-override'),
     app     = express(),
     post    = require('./routes/post');
 
@@ -17,6 +19,17 @@ app.use(logger('dev'));
 // #10 POSTされたデータを扱うためのミドルウェア
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+// #12 PUT, DELETE メソッドに対応するためのミドルウェア
+app.use(methodOverride(function(req, res){
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // look in urlencoded POST bodies and delete it
+    console.log('>>> methodOverride');
+    var method = req.body._method;
+    delete req.body._method;
+    return method;
+  }
+}));
 
 // app.use(app.router); // -> 'app.router' is deprecated!
 
