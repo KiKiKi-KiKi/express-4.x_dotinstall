@@ -1,0 +1,11 @@
+include config
+- console.log( blogTitle )
+- if(blogTitle) blogTitle += '|' + blogName
+- var title = blogTitle || blogName;
+doctype html
+html(lang= lang)
+  head
+    meta(charaset="utf-8")
+    title= title
+  body
+    block body
