@@ -11,5 +11,14 @@
     "url": "ssh://git@github.com:chaika-design/express-4.x_dotinstall.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "nodemon": "^1.7.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "morgan": "^1.6.1"
+  }
 }
