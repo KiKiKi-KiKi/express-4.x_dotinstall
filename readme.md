@@ -90,3 +90,20 @@ $ npm install connect method-override
 >   <button type="submit">Delete resource</button>
 > </form>
 > ```
+
+### #20 CSRF対策を施そう
+CSRF対策に必要なミドルウェア`express.cookieParser()`, `express.session()`, `express.csrf()`はExpress 4.xでは別途モジュールをインストールしなければならない  
+
+```sh
+$ npm install cookie-parser express-session csurf
+```
+
+```javascript
+var cookieParser   = require('cookie-parser');
+var expressSession = require('express-session');
+var csrf           = require('csurf');
+
+app.use(cookieParser());
+app.use(expressSession({secret: 'secret_key'}));
+app.use(csrf());
+```

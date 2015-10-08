@@ -15,7 +15,10 @@
   "dependencies": {
     "body-parser": "^1.14.1",
     "connect": "^3.4.0",
+    "cookie-parser": "^1.4.0",
+    "csurf": "^1.8.3",
     "express": "^4.13.3",
+    "express-session": "^1.11.3",
     "jade": "^1.11.0",
     "method-override": "^2.3.5",
     "nodemon": "^1.7.1",

@@ -4,6 +4,9 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     connect        = require('connect'),
     methodOverride = require('method-override'),
+    cookieParser   = require('cookie-parser'),
+    expressSession = require('express-session'),
+    csrf           = require('csurf'),
     app     = express(),
     post    = require('./routes/post');
 
@@ -30,6 +33,11 @@ app.use(methodOverride(function(req, res){
     return method;
   }
 }));
+
+// #20 CSRF対策
+app.use(cookieParser());
+app.use(expressSession({secret: 'secret_key'}));
+app.use(csrf());
 
 // app.use(app.router); // -> 'app.router' is deprecated!
 
