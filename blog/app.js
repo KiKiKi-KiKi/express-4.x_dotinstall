@@ -38,8 +38,8 @@ app.get('/', post.index);
 // :id は 0-9でないと post.show にならないように正規表現で判定させる
 app.get('/posts/:id([0-9]+)', post.show);
 app.get('/posts/new', post.new);
-/*
 app.post('/posts/create', post.create);
+/*
 app.get('/posts/:id/edit', post.edit);
 app.put('/posts/:id', post.update);
 app.delete('/posts/:id', post.destroy);

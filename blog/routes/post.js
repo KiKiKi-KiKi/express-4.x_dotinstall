@@ -17,3 +17,14 @@ exports.show = function(req, res) {
 exports.new = function(req, res) {
   res.render('posts/new');
 };
+
+// 新規記事の作成
+exports.create = function(req, res) {
+  // フォームで渡ってくるデータは req.body で渡される
+  var post = {
+    title: req.body.title,
+    body: req.body.body
+  };
+  posts[posts.length] = post;
+  res.redirect('/');
+};
