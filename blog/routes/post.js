@@ -36,17 +36,30 @@ exports.create = function(req, res) {
 };
 
 // 記事の編集
-exports.update = function(req, res) {
+exports.update = function(req, res, next) {
   var id = req.body.id;
-  posts[id] = {
-    title: req.body.title,
-    body: req.body.body
-  };
-  res.redirect('/');
+  if(id !== req.params.id) {
+    var err = new Error('ID not valid');
+    err.status = 500;
+    next( err );
+  } else {
+    posts[id] = {
+      title: req.body.title,
+      body: req.body.body
+    };
+    res.redirect('/');
+  }
 };
 
 // 記事の削除
-exports.destroy = function(req, res) {
-  posts.splice(req.body.id, 1);
-  res.redirect('/');
+exports.destroy = function(req, res, next) {
+  var id = req.body.id;
+  if(id !== req.params.id) {
+    var err = new Error('ID not valid');
+    err.status = 500;
+    next( err );
+  } else {
+    posts.splice(req.body.id, 1);
+    res.redirect('/');
+  }
 };

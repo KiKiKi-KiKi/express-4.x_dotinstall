@@ -57,4 +57,11 @@ app.get('/posts/:id/edit', post.edit);
 app.put('/posts/:id', post.update);
 app.delete('/posts/:id', post.destroy);
 
+// #21 エラー処理をしていこう
+app.use(function(err, req, res, next) {
+  console.log('>> ERROR >>', err);
+  res.status(err.status || 500);
+  res.send(err.message);
+});
+
 app.listen(3000);

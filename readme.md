@@ -107,3 +107,37 @@ app.use(cookieParser());
 app.use(expressSession({secret: 'secret_key'}));
 app.use(csrf());
 ```
+
+### #21 エラー処理をしていこう
+サンプルでは`app.router`の後にエラー処理を行うミドルウェアの記述をするとあるが、  
+Express 4.xでは `app.router` が廃止されているのがためか、エラー処理のミドルウェアは  
+**Routing**の処理より後に記述しないとエラーがそのまま表示されてしまい上手く動作しない。
+
+```javascript
+// app.js
+// app.use(app.router); // -> 'app.router' is deprecated!
+
+// Error
+//  -> next( new Error() ) をしてもエラーになり、エラー処理は行われない
+app.use(function(err, req, res, next) {
+  res.send(err.message);
+});
+
+// Routing
+app.get('/', post.index);
+```
+
+```javascript
+// app.js
+// app.use(app.router); // -> 'app.router' is deprecated!
+
+// Routing
+app.get('/', post.index);
+/* 中略 */
+
+// Error
+//  -> next( new Error() ) で下のエラー処理が実行される
+app.use(function(err, req, res, next) {
+  res.send(err.message);
+});
+```
