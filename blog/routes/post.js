@@ -12,3 +12,8 @@ exports.index = function(req, res) {
 exports.show = function(req, res) {
   res.render('posts/show', {post: posts[req.params.id]});
 };
+
+// 新規作成フォーム
+exports.new = function(req, res) {
+  res.render('posts/new');
+};

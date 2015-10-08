@@ -1,0 +1,14 @@
+- var blogTitle = 'Create New Post'
+include ./common/_layout
+block body
+  article
+    h1 Create New Post
+    form(method="post", action="/posts/create")
+      div
+        input(type="text", name="title")
+      div
+        input(type="text", name="body")
+      div
+        input(type="submit", value="ADD")
+  a(href="/") Go Back
+
