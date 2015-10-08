@@ -11,6 +11,7 @@ block body
       div
         input(type="hidden", name="_method", value="put")
         input(type="hidden", name="id", value= id)
+        input(type="hidden", name="_csrf", value= csrftoken)
         input(type="submit", value="edit")
   a(href="/") Go Back
 

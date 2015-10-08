@@ -38,6 +38,12 @@ app.use(methodOverride(function(req, res){
 app.use(cookieParser());
 app.use(expressSession({secret: 'secret_key'}));
 app.use(csrf());
+app.use(function(req, res, next) {
+  console.log('>>> create csrftoken');
+  var token = req.csrfToken();
+  res.locals.csrftoken = token;
+  next();
+});
 
 // app.use(app.router); // -> 'app.router' is deprecated!
 
