@@ -8,5 +8,11 @@ block body
         a(href="/posts/#{i}")= posts[i].title
         | &nbsp;
         != posts[i].body
+        | &nbsp;
+        a(href="/posts/#{i}/edit") [Edit]
+        form(method="post", action="/posts/#{i}", style="display:inline; margin-left:.5em;")
+          input(type="hidden", name="_method", value="delete")
+          input(type="hidden", name="id", value="#{i}")
+          input(type="submit", value="delete")
   p
     a(href="/posts/new") ADD POST.
