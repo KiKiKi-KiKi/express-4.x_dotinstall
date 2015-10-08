@@ -1,0 +1,16 @@
+- var blogTitle = 'Edit Post'
+include ./common/_layout
+block body
+  article
+    h1 Create New Post
+    form(method="post", action="/posts/#{id}")
+      div
+        input(type="text", name="title", value= post.title)
+      div
+        input(type="text", name="body", value= post.body)
+      div
+        input(type="hidden", name="_method", value="put")
+        input(type="hidden", name="id", value= id)
+        input(type="submit", value="edit")
+  a(href="/") Go Back
+

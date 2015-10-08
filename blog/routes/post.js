@@ -18,6 +18,12 @@ exports.new = function(req, res) {
   res.render('posts/new');
 };
 
+// 記事編集フォーム
+exports.edit = function(req, res) {
+  var id = req.params.id;
+  res.render('posts/edit', {post: posts[id], id: id});
+};
+
 // 新規記事の作成
 exports.create = function(req, res) {
   // フォームで渡ってくるデータは req.body で渡される
