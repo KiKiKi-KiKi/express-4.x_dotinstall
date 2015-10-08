@@ -44,3 +44,9 @@ exports.update = function(req, res) {
   };
   res.redirect('/');
 };
+
+// 記事の削除
+exports.destroy = function(req, res) {
+  posts.splice(req.body.id, 1);
+  res.redirect('/');
+};
