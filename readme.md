@@ -14,6 +14,7 @@ app.use(app.router); があるとエラーになる
 - nodemonを使用する場合  
 `nodemon app`
 
+### #10 POSTされたデータを受け取ろう
 #### POSTを扱うためのミドルウェア
 Express 4.x では`express.json()`・`express.urlencoded()`が使えないので、別途ミドルウェアをインストールして設定する必要がある  
 ```sh
@@ -39,7 +40,7 @@ $ touch routes/post.js
 
 ### #12 ルーティングを確認しよう
 PUT, DELETEに対応するためのミドルウェア  
-`express.methodOverride()`はExprexx 4.xでは使えないので、別途ミドルウェアをインストールして設定する必要がある  
+`express.methodOverride()`Express 4.xでは使えないので、別途ミドルウェアをインストールして設定する必要がある  
 ```sh
 $ npm install connect method-override
 ```
