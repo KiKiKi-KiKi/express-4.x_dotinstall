@@ -34,3 +34,13 @@ exports.create = function(req, res) {
   posts[posts.length] = post;
   res.redirect('/');
 };
+
+// 記事の編集
+exports.update = function(req, res) {
+  var id = req.body.id;
+  posts[id] = {
+    title: req.body.title,
+    body: req.body.body
+  };
+  res.redirect('/');
+};
